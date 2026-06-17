@@ -1,0 +1,162 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Aanaya ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#ff4d6d,#ff85a2,#ffc2d1,#ffdde1);
+    background-size:400% 400%;
+    animation:bg 10s infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.card{
+    width:90%;
+    max-width:450px;
+    padding:30px;
+    text-align:center;
+    border-radius:25px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    color:white;
+    box-shadow:0 0 30px rgba(255,255,255,0.3);
+}
+
+h1{
+    font-size:32px;
+}
+
+.heart{
+    font-size:60px;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+    50%{transform:scale(1.25);}
+}
+
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+#countdown{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.footer{
+    margin-top:20px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday Aanaya ❤️</h1>
+
+<div class="heart">❤️</div>
+
+<p>
+Dear Aanaya,<br><br>
+May your life always be filled with happiness,
+beautiful memories and endless smiles. ✨🌸
+</p>
+
+<h2 id="countdown">Loading...</h2>
+
+<button onclick="playMusic()">🎵 Play Music</button>
+
+<div class="footer">
+Made with ❤️ by Karan
+</div>
+
+<audio id="song" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+function playMusic(){
+    const song=document.getElementById("song");
+
+    if(song.paused){
+        song.play();
+    }else{
+        song.pause();
+    }
+}
+
+function updateCountdown(){
+    const now=new Date();
+    let year=now.getFullYear();
+
+    let birthday=new Date(year,5,20);
+
+    if(now>birthday){
+        birthday=new Date(year+1,5,20);
+    }
+
+    const diff=birthday-now;
+
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff/(1000*60*60))%24);
+    const m=Math.floor((diff/(1000*60))%60);
+    const s=Math.floor((diff/1000)%60);
+
+    document.getElementById("countdown").innerHTML=
+    `⏳ ${d}d ${h}h ${m}m ${s}s`;
+
+    if(diff<=0){
+        document.getElementById("countdown").innerHTML=
+        "🎉 Happy Birthday Aanaya ❤️";
+    }
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
